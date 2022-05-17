@@ -12,15 +12,15 @@ let planetFacts = {
   
   let {numPlanets, ...discoveryYears} = planetFacts;
   
-  console.log(discoveryYears); // {1846, 1659}
+  console.log(discoveryYears); // {yearNeptuneDiscovered:1846, yearMarsDiscovered:1659}
 
   function getUserData({firstName, favoriteColor="green"}){
     return `Your name is ${firstName} and you like ${favoriteColor}`;
   }
   
-  getUserData({firstName: "Alejandro", favoriteColor: "purple"}) // ?
-  getUserData({firstName: "Melissa"}) // Melissa
-  getUserData({}) // Alejandro, purple
+  getUserData({firstName: "Alejandro", favoriteColor: "purple"}) // Your name is Alejandro and you like purple
+  getUserData({firstName: "Melissa"}) // Your name is Melissa and you like green 
+  getUserData({}) // your name is undefined  and you like green 
 
   let [first, second, third] = ["Maya", "Marisa", "Chi"];
 
@@ -43,7 +43,7 @@ let [raindrops, whiskers, ...aFewOfMyFavoriteThings] = [
   let numbers = [10, 20, 30];
 [numbers[1], numbers[2]] = [numbers[2], numbers[1]]
 
-console.log(numbers) // [20, 10, 30]
+console.log(numbers) // [20, 10, 30] its actually[10,30,20]
 
 var obj = {
     numbers: {
@@ -56,6 +56,7 @@ var obj = {
   var b = obj.numbers.b;
 // ES2015
 let {numbers:{a,b}}= obj
+// the solution cont {a,b} = obj.numbers
 
 var arr = [1, 2];
 var temp = arr[0];
@@ -66,10 +67,11 @@ let arr = [1, 2];
 let one =  arr[0];
 let two =  arr[1];
 [one, two]= [two, one]
-
+// the solution [arr[0],arr[1]]=[arr[1], arr[0]]
 raceResults(['Tom', 'Margaret', 'Allison', 'David', 'Pierre'])
 
 let [first, second, third, ...rest] = raceResults
+const raceResults = ([first, second, third, ...rest])
 /*
   {
     first: "Tom",
